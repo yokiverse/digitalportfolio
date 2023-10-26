@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drawpad with Save Option</title>
+    <style>
+        #drawpad {
+            border: 1px solid #000;
+        }
+
+        #saveButton {
+            margin: 10px;
+            padding: 5px 10px;
+            background-color: #0077FF;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+        }
+#clearButton{
+margin: 10px;
+            padding: 5px 10px;
+            background-color: #0077FF;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <canvas id="drawpad" width="800" height="400"></canvas>
+<br>    
+<button id="saveButton">Save Drawing</button>
+<button id="clearButton">clear Drawing</button>
+    <script>
+        const drawpad = document.getElementById("drawpad");
+        const context = drawpad.getContext("2d");
+        let drawing = false;
+
+        drawpad.addEventListener("mousedown", () => {
+            drawing = true;
+            context.beginPath();
+        });
+
+        drawpad.addEventListener("mouseup", () => {
+            drawing = false;
+            context.closePath();
+        });
+
+        drawpad.addEventListener("mousemove", (e) => {
+            if (!drawing) return;
+
+            context.lineWidth = 2;
+            context.lineCap = "round";
+            context.strokeStyle = "black";
+
+            context.lineTo(e.clientX - drawpad.offsetLeft, e.clientY - drawpad.offsetTop);
+            context.stroke();
+        });
+
+        drawpad.addEventListener("mouseout", () => {
+            drawing = false;
+        });
+//document.getElementById("clearButton").addEventListener("click", ())=> ctx.clearRect(0,0,canvas.width,canvas.height));
+
+        const saveButton = document.getElementById("saveButton");
+        saveButton.addEventListener("click", () => {
+            const image = drawpad.toDataURL(); // Convert canvas content to data URL
+            const a = document.createElement("a");
+            a.href = image;
+            a.download = "my_drawing.png"; // Specify the filename
+            a.click(); // Simulate a click to trigger the download
+        });
+    </script>
+</body>
+</html>

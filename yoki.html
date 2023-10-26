@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Personal Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #0077b5;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #downloadButton {
+            background-color: #0077b5;
+            color: #00FF00;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #downloadButton:hover {
+            background-color: #005983;
+        }
+
+        #profilePicture {
+            width: 150px; /* Set the desired width */
+            height: 150px; /* Set the desired height */
+            border-radius: 50%; /* Make it a circle */
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="profilePicture" src="yoki.jpg" alt="Your Name's Profile Picture">
+        <h1>YOKESH RAJASEKARAN</h1>
+        <p>Comuter science student. Aspiring tech innovator.</p>
+    </header>
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+              Hello! I'm Yokesh Rajasekaran. I'm currently pursuing my degree in Government Arts College(Autonomous),Karur. I've problem-solving and collboration skills. I'm dedicated to pushing the boundaries of what technology can  achieve.
+        </p>
+        <h2>Project: <a href="drawpad.html" target="_blank">drawing pad</a> </h2>
+        <p>
+         
+	It is my first project in the web development. It is a simple drawpad. The download is also available in my drawpad. It is useful to the kids and  students.   
+        </p>
+        <h2>Skills</h2>
+        <p>
+            *Full stack development
+            *Web development
+        </p>
+        <button id="downloadButton">Download Profile</button>
+    </div>
+
+    <script>
+        // Add JavaScript functionality here (e.g., for the download button)
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            // You can add code here to trigger a download or perform other actions.
+            document.getElementById("downloadButton").addEventListener("click", function() {
+        // Create a link to the file you want to download
+        var downloadLink = document.createElement('a');
+        downloadLink.href = 'link_to_your_file.pdf'; // Replace with the actual file link
+        downloadLink.download = 'your_profile.pdf'; // Set the download filename
+
+        // Simulate a click on the link to trigger the download
+        downloadLink.click();
+    });
+
+        });
+    </script>
+</body>
+</html>
